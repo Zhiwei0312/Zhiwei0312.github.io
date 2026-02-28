@@ -1,0 +1,107 @@
+/* =========================================================
+   Academic Pages - Clean Code Style (Light + Dark)
+   ========================================================= */
+
+
+/* =========================
+   1️⃣ Inline code (`xxx`)
+   ========================= */
+
+:not(pre) > code {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+
+/* 夜间 inline */
+html[data-theme="dark"] :not(pre) > code {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   2️⃣ Remove ALL borders / double frames
+   ========================= */
+
+/* 清除所有 wrapper 的边框和阴影 */
+.highlighter-rouge,
+div.highlighter-rouge,
+figure.highlight,
+.highlight {
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 清除内部层 */
+.highlighter-rouge pre,
+figure.highlight pre,
+.highlight pre {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0.9em 1.2em !important;
+}
+
+.highlighter-rouge code,
+figure.highlight code,
+.highlight code,
+pre code {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+
+/* =========================
+   3️⃣ Light mode background
+   ========================= */
+
+.highlighter-rouge,
+figure.highlight,
+.highlight {
+  background: #f7f8fa !important;   /* 柔和浅灰 */
+}
+
+
+/* =========================
+   4️⃣ Dark mode background
+   ========================= */
+
+html[data-theme="dark"] .highlighter-rouge,
+html[data-theme="dark"] figure.highlight,
+html[data-theme="dark"] .highlight {
+  background: #1a1a1a !important;   /* 柔和深灰 */
+}
+
+/* 如果主题用系统夜间模式 */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .highlighter-rouge,
+  html:not([data-theme="light"]) figure.highlight,
+  html:not([data-theme="light"]) .highlight {
+    background: #1a1a1a !important;
+  }
+}
+
+
+/* =========================
+   5️⃣ Remove top-right </> icon
+   ========================= */
+
+.highlight::before,
+.highlight::after,
+figure.highlight::before,
+figure.highlight::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 如果主题用按钮形式 */
+.copy-code-button,
+.code-header,
+.highlight .btn,
+.highlight button {
+  display: none !important;
+}
